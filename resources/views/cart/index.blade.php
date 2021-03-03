@@ -59,7 +59,11 @@
                         <td data-th="image">
                             <div class="row">
                                 <div class="col-sm-9 ">
-                                    <img height="40" src="{{asset('storage/' . $dish['path_image'])}}" alt="">
+                                    @if ($dish['path_image'])
+                                        <img height="40" src="{{asset('storage/' . $dish['path_image'])}}" alt="">
+                                    @else 
+                                        <img height="40" src="{{asset('image/default_dish.jpg')}}" alt="default_image">
+                                    @endif
                                 </div>
                             </div>
                         </td>
@@ -128,7 +132,7 @@
                             
                         </td>
                         <td colspan="2" class="hidden-xs"></td>
-                        <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
+                        <td class="hidden-xs text-center"><strong>Total {{ $total }}&euro;</strong></td>
                     </tr>
                 </tfoot>
             </table>
